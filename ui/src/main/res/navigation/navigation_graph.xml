@@ -6,8 +6,21 @@
     app:startDestination="@id/loginFragment">
 
     <fragment
+        android:id="@+id/watchListFragment"
+        android:name="com.kelvinsugiarto.ministockwatch.ui.ui.watchlist.WatchListFragment"
+        android:label="Watchlist"
+        tools:layout="@layout/watch_list_fragment" />
+    <fragment
+        android:id="@+id/streamViewFragment"
+        android:name="com.kelvinsugiarto.ministockwatch.ui.ui.livedatafeed.LiveDataFeedFragment"
+        android:label="Live Feed"
+        tools:layout="@layout/livedata_feed_fragment" />
+    <fragment
         android:id="@+id/loginFragment"
         android:name="com.kelvinsugiarto.ministockwatch.ui.ui.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_loginFragment_to_watchListFragment"
+            app:destination="@id/watchListFragment" />
+    </fragment>
 </navigation>

@@ -3,6 +3,6 @@ package com.kelvinsugiarto.ministockwatch.data.source.model
 import com.google.gson.annotations.SerializedName
 
 data class DisplayResponseEnt(
-    @SerializedName("IDR")
+    @SerializedName("USD")
     val displayDetail: DisplayDetailResponseEnt
 )

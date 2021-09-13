@@ -11,7 +11,7 @@ data class ResponseEnt(
     @SerializedName("MetaData")
     var metadata:Objects? = null,
     @SerializedName("SponsoredData")
-    var sponsoredData:Objects? = null,
+    var sponsoredData: List<SponsoredDataResponseEnt>? = null,
     @SerializedName("Data")
     var data: List<CryptoResponseEnt>? = null,
     @SerializedName("RateLimit")

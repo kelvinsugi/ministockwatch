@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/usernameTxt"
+        android:title="@string/usernamePlaceholder" />
+    <group
+        android:id="@+id/grp_1"
+        android:checkableBehavior="single">
+        <item
+            android:title="@string/txt_trade_title">
+            <menu>
+                <group
+                    android:id="@+id/trade_menu_grp"
+                    android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/nav_watchlist"
+                        android:icon="@drawable/ic_baseline_star_rate_24"
+                        android:title="@string/watchlist_label" />
+
+                    <item
+                        android:id="@+id/nav_portfolio"
+                        android:icon="@drawable/ic_baseline_pie_chart_24"
+                        android:title="@string/portfolio_label" />
+                </group>
+            </menu>
+        </item>
+
+    </group>
+
+
+
+</menu>

@@ -10,7 +10,7 @@ data class CoinInfoResponseEnt(
     @SerializedName("BlockReward")
     val blockReward: Double,
     @SerializedName("BlockTime")
-    val blockTime: Int,
+    val blockTime: Double,
     @SerializedName("DocumentType")
     val documentType: String,
     @SerializedName("FullName")

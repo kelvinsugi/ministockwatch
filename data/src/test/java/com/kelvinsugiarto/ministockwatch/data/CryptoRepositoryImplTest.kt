@@ -6,7 +6,7 @@ import com.kelvinsugiarto.ministockwatch.common.MockData.currency
 import com.kelvinsugiarto.ministockwatch.common.MockData.limit
 import com.kelvinsugiarto.ministockwatch.common.MockData.page
 import com.kelvinsugiarto.ministockwatch.common.MockData.requestParam
-import com.kelvinsugiarto.ministockwatch.data.common.Result
+import com.kelvinsugiarto.ministockwatch.data.common.DataResult
 import com.kelvinsugiarto.ministockwatch.data.source.CryptoRepositoryImpl
 import com.kelvinsugiarto.ministockwatch.data.source.remote.CryptoAPI
 import com.kelvinsugiarto.ministockwatch.data.source.remote.CryptoRepository
@@ -59,7 +59,7 @@ open class CryptoRepositoryImplTest {
             val result = repositoryImpl.getCryptoData(requestParam)
             // Then
             assert(
-                result is Result.Success.Data<*>
+                result is DataResult.Success<*>
             )
         }
     }

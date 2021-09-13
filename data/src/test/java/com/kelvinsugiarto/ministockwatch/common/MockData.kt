@@ -1,6 +1,6 @@
 package com.kelvinsugiarto.ministockwatch.common
 
-import com.kelvinsugiarto.ministockwatch.data.common.Result
+import com.kelvinsugiarto.ministockwatch.data.common.DataResult
 import com.kelvinsugiarto.ministockwatch.data.source.model.*
 
 object MockData {
@@ -20,8 +20,8 @@ object MockData {
     val cryptoList = listOf(cryptoModel, cryptoModel)
 //    val emptyResult = Result.Success.NoData
 //    val nonEmptyResult = Result.Success.Data(cryptoList)
-    val successResultCrypto = Result.Success.Data(cryptoList)
-    val failureResultCrypto = Result.Failure.ErrorMessage("error Msg")
+    val successResultCrypto = DataResult.Success.Data(cryptoList)
+    val failureResultCrypto = DataResult.Failure.ErrorMessage("error Msg")
 
     val cryptoResponse = CryptoResponseEnt(
         CoinInfoResponseEnt(

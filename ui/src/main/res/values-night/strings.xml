@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="watchlist_label">Watchlist</string>
+    <string name="search_label">Search</string>
+    <string name="chat_label">Chat</string>
+    <string name="no_information">No available information</string>
+    <string name="btc_to_usd_label">BTC/USD</string>
+    <string name="eth_to_usd_label">ETH/USD</string>
+    <string name="txt_trade_title">TRADE</string>
+    <string name="txt_watchlist_menu_title">Watchlist</string>
+    <string name="viewProfile">View Profile</string>
+    <string name="login_title">Masuk</string>
+</resources>

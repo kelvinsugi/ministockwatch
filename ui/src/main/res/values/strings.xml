@@ -9,4 +9,30 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="watchlist_label">Watchlist</string>
+    <string name="viewStream_label">Stream</string>
+    <string name="search_label">Search</string>
+    <string name="chat_label">Chat</string>
+    <string name="portfolio_label">Portfolio</string>
+    <string name="no_information">No available information</string>
+    <string name="label_suspended">suspended_label</string>
+    <string name="btc_to_usd_label">BTC/USD</string>
+    <string name="eth_to_usd_label">ETH/USD</string>
+    <string name="usernamePlaceholder">Username</string>
+    <string name="txt_trade_title">TRADE</string>
+    <string name="txt_watchlist_menu_title">Watchlist</string>
+    <string name="viewProfile">View Profile</string>
+    <string name="login_title">Masuk</string>
+    <string name="sign_in_facebook_title">Login with Facebook</string>
+    <string name="sign_in_google_title">Login with Google</string>
+    <string name="sign_up_facebook_title">Sign up with Facebook</string>
+    <string name="sign_up_google_title">Sign up with Google</string>
+    <string name="label_or">Atau</string>
+    <string name="label_login_fingerprint">Masuk dengan Fingerprint</string>
+    <string name="label_login">Login</string>
+    <string name="label_forgot_password">Forgot Password</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_username_or_email">Username or Email</string>
+    <string name="label_register_now">Belum punya account?  <font color='#00AB6D'>Daftar Sekarang</font></string>
+    <string name="price_change_format">%1$s (%2$s%%)</string>
 </resources>

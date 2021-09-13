@@ -1,9 +1,6 @@
 package com.kelvinsugiarto.ministockwatch.ui.ui.login
 
-/**
- * Authentication result : success (user details) or error message.
- */
-data class LoginResult(
-    val success: LoggedInUserView? = null,
-    val error: Int? = null
-)
+sealed class LoginResult<out T:  Any> {
+    data class Success<out T : Any>(val data: T) : LoginResult<T>()
+    data class Error(val exception: String) : LoginResult<Nothing>()
+}

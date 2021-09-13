@@ -1,16 +1,90 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Ministockwatch" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Ministockwatch" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="bgColor">@color/white</item>
+
+    </style>
+
+    <style name="Theme.Ministockwatch.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/gray_300</item>
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:windowActionBar">false</item>
+
+        <item name="bgColor">@color/white</item>
+    </style>
+
+    <style name="Body1" parent="Theme.Ministockwatch">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Body1.Medium" parent="Theme.Ministockwatch">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Body1.Bold" parent="Body1">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Body2" parent="Theme.Ministockwatch">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Body2.Grey" parent="Body2">
+        <item name="android:textColor">@color/gray_500</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Body2.Bold" parent="Body2">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Body2.Red" parent="Body2">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="Body2.Green" parent="Body2">
+        <item name="android:textColor">@color/green</item>
+    </style>
+
+    <style name="Body2.Green.Bold" parent="Body2.Green">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Small.Body1.Red" parent="Theme.Ministockwatch">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="Small.Body2.Red" parent="Theme.Ministockwatch">
+        <item name="android:textSize">8sp</item>
+        <item name="android:textColor">@color/red</item>
     </style>
 </resources>
