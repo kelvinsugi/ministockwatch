@@ -8,12 +8,14 @@
     <fragment
         android:id="@+id/watchListFragment"
         android:name="com.kelvinsugiarto.ministockwatch.ui.ui.watchlist.WatchListFragment"
-        android:label="Watchlist"
-        tools:layout="@layout/watch_list_fragment" />
+        tools:layout="@layout/watch_list_fragment" >
+        <action
+            android:id="@+id/action_watchListFragment_to_streamViewFragment"
+            app:destination="@id/streamViewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/streamViewFragment"
         android:name="com.kelvinsugiarto.ministockwatch.ui.ui.livedatafeed.LiveDataFeedFragment"
-        android:label="Live Feed"
         tools:layout="@layout/livedata_feed_fragment" />
     <fragment
         android:id="@+id/loginFragment"

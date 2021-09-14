@@ -1,5 +1,6 @@
 package com.kelvinsugiarto.ministockwatch.ui.ui.watchlist
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,8 +10,8 @@ import com.kelvinsugiarto.ministockwatch.data.common.StateResult
 import com.kelvinsugiarto.ministockwatch.data.source.model.CryptoModelEnt
 import com.kelvinsugiarto.ministockwatch.data.source.model.CryptoRequestEnt
 import com.kelvinsugiarto.ministockwatch.data.source.remote.CryptoRepository
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class WatchListViewModel(private val repository: CryptoRepository) : ViewModel() {
@@ -34,5 +35,20 @@ class WatchListViewModel(private val repository: CryptoRepository) : ViewModel()
             _watchListObservable.postValue(result)
             state = StateResult.isLoaded
         }
+    }
+
+    fun resetPage(){
+        page = 1
+    }
+
+    fun fetchNextPage() {
+        if (state == StateResult.isLoaded) {
+            state = StateResult.isLoading
+            getWatchList()
+        }
+    }
+
+    fun incrementPageNumber() {
+        page++
     }
 }

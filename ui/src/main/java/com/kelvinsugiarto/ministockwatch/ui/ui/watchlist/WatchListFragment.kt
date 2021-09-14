@@ -48,6 +48,8 @@ class WatchListFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         (activity as MainActivity).supportActionBar!!.title = ""
         (activity as MainActivity).setToolbarTitle("Watchlist")
+        (activity as MainActivity).showBottomNavigation()
+
         setUpObserver()
         setupView()
         viewModel.getWatchList()
@@ -62,11 +64,19 @@ class WatchListFragment : Fragment() {
             )
         )
         watchListAdapter = WatchListAdapter {
-            viewModel.getWatchList()
+            viewModel.fetchNextPage()
             progressBarLoad.showSlideUp()
         }
 
         recyclerViewWatchList.adapter = watchListAdapter
+
+        swipeRefreshLayout.setOnRefreshListener {
+            textViewErrorMessage.setGone()
+            recyclerViewWatchList.setGone()
+            watchListAdapter.submitList(null)
+            viewModel.resetPage()
+            viewModel.getWatchList()
+        }
     }
 
 
@@ -92,9 +102,9 @@ class WatchListFragment : Fragment() {
                 //stopShimmer()
                 viewModel.cryptoList.addAll(data)
                 watchListAdapter.submitList(viewModel.cryptoList)
-//                viewModel.onUpdatePageNumber()
                 onFinishLoadData()
                 recyclerViewWatchList.setVisible()
+                viewModel.incrementPageNumber()
                 Log.d("errorLog","Data length "+data.size.toString())
             }, {
 //                stopShimmer()

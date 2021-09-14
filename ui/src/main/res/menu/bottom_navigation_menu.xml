@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/watchListMenuItem"
+        android:id="@+id/watchListFragment"
         android:icon="@drawable/ic_baseline_star_border_24"
         android:title="@string/watchlist_label"/>
     <item
-        android:id="@+id/viewStreamMenuItem"
+        android:id="@+id/streamViewFragment"
         android:icon="@drawable/ic_baseline_view_stream_24"
         android:title="@string/viewStream_label"/>
     <item

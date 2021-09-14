@@ -74,6 +74,24 @@ class MainActivity : AppCompatActivity() {
 //        return NavigationUI.navigateUp(navController,appBarConfiguration)
 //    }
 
+    fun showBottomNavigation(){
+        binding.mainBottomNavigationView.visibility = View.VISIBLE
+
+        val appBarConfiguration = AppBarConfiguration(
+            topLevelDestinationIds = setOf(
+                R.id.watchListFragment,
+                R.id.streamViewFragment,
+                R.id.loginFragment
+            )
+        )
+
+        NavigationUI.setupWithNavController(
+            binding.mainBottomNavigationView,
+            navController
+        )
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
+    }
 
 
     fun hideBottomNavigation() { //Hide bottom navigation

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.kelvinsugiarto.ministockwatch.ui.R
+import com.kelvinsugiarto.ministockwatch.ui.ui.main.MainActivity
 
 class LiveDataFeedFragment : Fragment() {
 
@@ -26,6 +27,7 @@ class LiveDataFeedFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(LiveDataFeedViewModel::class.java)
+        (activity as MainActivity).setToolbarTitle("Live Feed")
         // TODO: Use the ViewModel
     }
 
