@@ -16,8 +16,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.kelvinsugiarto.ministockwatch.ui.databinding.ActivityMainBinding
 import com.kelvinsugiarto.ministockwatch.ui.R
-
-
+import com.kelvinsugiarto.ministockwatch.ui.ui.login.LoginResult
+import com.kelvinsugiarto.ministockwatch.ui.ui.login.LoginViewModel
+import com.kelvinsugiarto.ministockwatch.ui.utils.setGone
+import com.kelvinsugiarto.ministockwatch.ui.utils.setVisible
+import com.kelvinsugiarto.ministockwatch.ui.utils.showSuccessSnackbar
+import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,13 +31,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
 //    private lateinit var navHostFragment: NavHostFragment
     private lateinit var navController: NavController
-
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        menuInflater.inflate(R.menu.drawer_menu, menu)
-        return true
-    }
+    var isLoggedIn : Boolean = false
+    private val viewModel by viewModel<MainActivityViewModel>()
+    private val loginViewModel by viewModel<LoginViewModel>()
 
     fun setToolbarTitle(title:String){
         binding.toolbarTitle.text = title
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.title = ""
 
         setupNavControl()
+        setObserver()
     }
 
 
@@ -64,11 +66,23 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.home_menu, menu)
+        menu?.findItem(R.id.sign_out)?.setVisible(isLoggedIn)
+        menu?.findItem(R.id.action_support)?.setVisible(!isLoggedIn)
+        return true
+    }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        return item.onNavDestinationSelected(navController) ||
-//                super.onOptionsItemSelected(item)
-//    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.sign_out -> {
+                loginViewModel.doLogout()
+                navController.navigate(R.id.loginFragment, null)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 //    override fun onSupportNavigateUp(): Boolean {
 //        return NavigationUI.navigateUp(navController,appBarConfiguration)
@@ -108,6 +122,18 @@ class MainActivity : AppCompatActivity() {
             finish()
         } else {
             super.onBackPressed()
+        }
+    }
+
+    private fun setObserver(){
+        loginViewModel.loginStateObservable.observe(this) {
+            if(it == true){
+                isLoggedIn = true
+                invalidateOptionsMenu()
+            }else{
+                isLoggedIn = false
+                invalidateOptionsMenu()
+            }
         }
     }
 }

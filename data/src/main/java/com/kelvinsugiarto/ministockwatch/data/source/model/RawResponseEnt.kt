@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class RawResponseEnt(
     @SerializedName("USD")
-    val rawDetail: RawDetailResponseEnt
+    val rawDetail: RawDetailResponseEnt?
 )

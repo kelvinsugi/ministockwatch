@@ -10,4 +10,5 @@
     <string name="txt_watchlist_menu_title">Watchlist</string>
     <string name="viewProfile">View Profile</string>
     <string name="login_title">Masuk</string>
+    <string name="log_out_text">Log out</string>
 </resources>

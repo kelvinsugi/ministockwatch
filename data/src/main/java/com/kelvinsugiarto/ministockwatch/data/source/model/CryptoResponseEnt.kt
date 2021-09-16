@@ -5,7 +5,7 @@ data class CryptoResponseEnt(
     @SerializedName("CoinInfo")
     val coinInfo: CoinInfoResponseEnt,
     @SerializedName("DISPLAY")
-    val display: DisplayResponseEnt,
+    val display: DisplayResponseEnt?,
     @SerializedName("RAW")
-    val raw: RawResponseEnt
+    val raw: RawResponseEnt?
 )

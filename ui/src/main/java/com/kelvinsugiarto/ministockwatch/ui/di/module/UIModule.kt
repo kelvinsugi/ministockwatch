@@ -3,6 +3,7 @@ package com.kelvinsugiarto.ministockwatch.ui.di.module
 import android.content.SharedPreferences
 import android.se.omapi.Session
 import com.kelvinsugiarto.ministockwatch.ui.ui.login.LoginViewModel
+import com.kelvinsugiarto.ministockwatch.ui.ui.main.MainActivityViewModel
 import com.kelvinsugiarto.ministockwatch.ui.ui.watchlist.WatchListViewModel
 import com.kelvinsugiarto.ministockwatch.ui.utils.Constants.SHARED_PREFERENCE_NAME
 import com.kelvinsugiarto.ministockwatch.ui.utils.SessionManager
@@ -31,5 +32,9 @@ val uiModule = module {
 
     viewModel{
         WatchListViewModel(get())
+    }
+
+    viewModel{
+        MainActivityViewModel(get())
     }
 }

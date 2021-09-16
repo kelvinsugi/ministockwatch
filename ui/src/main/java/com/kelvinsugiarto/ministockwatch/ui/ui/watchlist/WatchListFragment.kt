@@ -110,6 +110,8 @@ class WatchListFragment : Fragment() {
 //                stopShimmer()
                 onFinishLoadData()
                 Log.d("errorLog", it.exception)
+                val view = requireActivity().findViewById(android.R.id.content) as View
+                view.showErrorSnackbar(it.exception)
             }
         )
     }

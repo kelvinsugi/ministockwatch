@@ -35,4 +35,5 @@
     <string name="hint_username_or_email">Username or Email</string>
     <string name="label_register_now">Belum punya account?  <font color='#00AB6D'>Daftar Sekarang</font></string>
     <string name="price_change_format">%1$s (%2$s%%)</string>
+    <string name="log_out_text">Log out</string>
 </resources>

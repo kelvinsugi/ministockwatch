@@ -18,29 +18,25 @@ class CryptoRepositoryImpl(
 //    private val websocketAPI: WebsocketAPI
     ) : CryptoRepository {
     override suspend fun getCryptoData(param: CryptoRequestEnt):DataResult<List<CryptoModelEnt>> {
-        if(api.getCryptoData(param.limit, param.pageNum, param.tsym).isSuccessful){
-            val body =  api.getCryptoData(param.limit, param.pageNum, param.tsym).body()
-            return try {
-                when {
-                    body?.data != null -> {
-                        val listData = body.data!!.map {
-                            CryptoModelEnt(it.coinInfo.name,it.coinInfo.fullName,
-                                it.raw.rawDetail.price, it.raw.rawDetail.changeDay,
-                                it.raw.rawDetail.changePCTDay)
-                        }
-                        DataResult.Success(listData)
+        try{
+            val body = api.getCryptoData(param.limit, param.pageNum, param.tsym).body()
+            return when {
+                body?.data != null -> {
+                    val listData = body.data!!.map {
+                        CryptoModelEnt(it.coinInfo.name,it.coinInfo.fullName,
+                            it.raw?.rawDetail?.price ?: 0.0, it.raw?.rawDetail?.changeDay ?:0.0,
+                            it.raw?.rawDetail?.changePCTDay ?: 0.0)
                     }
-                    else -> {
-                        DataResult.Error("Fail to map data")
-                    }
+                    DataResult.Success(listData)
                 }
-            }catch (e:Exception){
-                DataResult.Error(e.toString())
+                else -> {
+                    DataResult.Error("Fail to map data")
+                }
             }
-
-        }else{
-            return  DataResult.Error("Fail to get data")
+        }catch (e:Exception){
+            return DataResult.Error("Fail to get data, check your internet connection, stacktrace:$e")
         }
+
     }
 
 //    override suspend fun getCryptoLiveFeedData() = flow {

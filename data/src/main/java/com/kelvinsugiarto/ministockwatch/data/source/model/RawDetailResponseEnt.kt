@@ -6,13 +6,13 @@ data class RawDetailResponseEnt(
     @SerializedName("CHANGE24HOUR")
     val change24Hour: Double,
     @SerializedName("CHANGEDAY")
-    val changeDay: Double,
+    val changeDay: Double?,
     @SerializedName("CHANGEHOUR")
     val changeHour: Double,
     @SerializedName("CHANGEPCT24HOUR")
     val changePCT24Hour: Double,
     @SerializedName("CHANGEPCTDAY")
-    val changePCTDay: Double,
+    val changePCTDay: Double?,
     @SerializedName("CHANGEPCTHOUR")
     val changePCTHour: Double,
     @SerializedName("CONVERSIONSYMBOL")
@@ -60,7 +60,7 @@ data class RawDetailResponseEnt(
     @SerializedName("OPENHOUR")
     val openHour: Double,
     @SerializedName("PRICE")
-    val price: Double,
+    val price: Double?,
     @SerializedName("SUPPLY")
     val supply: Double,
     @SerializedName("TOPTIERVOLUME24HOUR")

@@ -49,8 +49,23 @@ class LoginFragment : Fragment() {
         return loginView
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpObserver()
+    }
 
     private fun setUpObserver() {
+        viewModel.loginStateObservable.observe(viewLifecycleOwner) {
+            when (it) {
+                true->{
+                    navigateToWatchList()
+                    (activity as MainActivity).isLoggedIn = true
+                    (activity as MainActivity).invalidateOptionsMenu()
+                }
+            }
+        }
+
+
         viewModel.loginObservable.observe(viewLifecycleOwner) {
             when (it) {
                 LoginResult.Success("Success") -> {
@@ -66,6 +81,9 @@ class LoginFragment : Fragment() {
                 else -> LoginResult.Error("error")
             }
         }
+
+
+
     }
 
     private fun navigateToWatchList() {
@@ -81,7 +99,6 @@ class LoginFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         // TODO: Use the ViewModel
         (activity as MainActivity).hideBottomNavigation()
-        setUpObserver()
     }
 
 }
