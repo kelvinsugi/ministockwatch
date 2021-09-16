@@ -9,6 +9,7 @@
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnPrimary</item>
 
@@ -24,6 +25,13 @@
     <style name="Theme.Ministockwatch.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor" tools:targetApi="l">#1E1E1E</item>
+
+    </style>
+
+    <style name="ActionBarPopupThemeOverlay" parent="Theme.Ministockwatch.NoActionBar" >
+        <item name="android:background">#191919</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

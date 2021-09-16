@@ -42,6 +42,8 @@ class LoginViewModel(private val sessionManager: SessionManager) : ViewModel() {
     private fun checkLoginState(){
         if(sessionManager.isSessionActive()){
             _loginStateObservable.postValue(true)
+        }else{
+            _loginStateObservable.postValue(false)
         }
     }
 

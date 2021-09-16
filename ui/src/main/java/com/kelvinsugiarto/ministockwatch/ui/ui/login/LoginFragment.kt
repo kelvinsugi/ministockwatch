@@ -62,6 +62,10 @@ class LoginFragment : Fragment() {
                     (activity as MainActivity).isLoggedIn = true
                     (activity as MainActivity).invalidateOptionsMenu()
                 }
+                false->{
+                    (activity as MainActivity).isLoggedIn = false
+                    (activity as MainActivity).invalidateOptionsMenu()
+                }
             }
         }
 
@@ -99,6 +103,7 @@ class LoginFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         // TODO: Use the ViewModel
         (activity as MainActivity).hideBottomNavigation()
+        (activity as MainActivity).setToolbarTitle("Masuk")
     }
 
 }

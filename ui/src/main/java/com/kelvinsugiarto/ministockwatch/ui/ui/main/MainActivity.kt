@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.title = ""
 
         setupNavControl()
-        setObserver()
+        //setObserver()
     }
 
 
@@ -125,15 +125,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setObserver(){
-        loginViewModel.loginStateObservable.observe(this) {
-            if(it == true){
-                isLoggedIn = true
-                invalidateOptionsMenu()
-            }else{
-                isLoggedIn = false
-                invalidateOptionsMenu()
-            }
-        }
-    }
 }
