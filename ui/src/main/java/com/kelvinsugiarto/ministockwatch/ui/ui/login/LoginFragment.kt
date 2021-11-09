@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import androidx.navigation.fragment.findNavController
 import com.kelvinsugiarto.ministockwatch.ui.R
+import com.kelvinsugiarto.ministockwatch.ui.databinding.FragmentLoginBinding
 import com.kelvinsugiarto.ministockwatch.ui.ui.main.MainActivity
 import com.kelvinsugiarto.ministockwatch.ui.utils.setGone
 import com.kelvinsugiarto.ministockwatch.ui.utils.setVisible
@@ -26,31 +27,45 @@ class LoginFragment : Fragment() {
         fun newInstance() = LoginFragment()
     }
 
+    private var _binding: FragmentLoginBinding? = null
+    private val binding get() = _binding!!
+
     private val viewModel by viewModel<LoginViewModel>()
-    lateinit var loginView: View
-    lateinit var loginButton:Button
-    lateinit var editTextEmail: EditText
+//    lateinit var loginView: View
+//    lateinit var loginButton:Button
+//    lateinit var editTextEmail: EditText
     lateinit var progressBarLoading:ProgressBar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        loginView = inflater.inflate(R.layout.login_fragment, container, false)
-        loginButton = loginView.findViewById(R.id.button_login)
-        editTextEmail = loginView.findViewById(R.id.edit_text_email)
+//        loginView = inflater.inflate(R.layout.login_fragment, container, false)
+//        loginButton = loginView.findViewById(R.id.button_login)
+//        editTextEmail = loginView.findViewById(R.id.edit_text_email)
+//
+//        progressBarLoading = loginView.findViewById(R.id.progress_bar_loading)
+//        loginButton.setOnClickListener {
+//            progressBarLoading.setVisible()
+//            viewModel.doLogin(editTextEmail.text.toString())
+//        }
+//
+//        return loginView
 
-        progressBarLoading = loginView.findViewById(R.id.progress_bar_loading)
-        loginButton.setOnClickListener {
-            progressBarLoading.setVisible()
-            viewModel.doLogin(editTextEmail.text.toString())
-        }
-
-        return loginView
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        with(binding){
+            binding.loginButton.setOnClickListener {
+                val view = requireActivity().findViewById(android.R.id.content) as View
+                view.showSuccessSnackbar("Login Success")
+            }
+        }
+
         setUpObserver()
     }
 
